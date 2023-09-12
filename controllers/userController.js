@@ -23,7 +23,7 @@ const searchUsers = async (req, res) => {
         res.json(users);
        }
        catch(error){
-            res.status(404).json("Deu erro!")
+            res.status(404).json("Deu erro")
        }
 }
 
