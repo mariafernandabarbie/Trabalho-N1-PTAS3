@@ -4,11 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API - Users</title>
+    <title>API- Multiverso do renato</title>
 </head>
 
 <body>
-    <h1>API - USER</h1>
+    <h1>Multiverso do Renato</h1>
+
+    <div><h2>Usamos nessa API as seguintes</h2>
+    <ul>
+        <li>Sequelize</li>
+        <li>Sequelize cli</li>
+        <li>Express JS</li>
+        <li>Postgres SQL</li>
+        <li>Thunder Client</li>
+        <li>Nodemon</li>
+    </ul></div>
+
+    <div>Cadastro de usuários
+        <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
+            e usado ao longo do desenvolvimento. Isso ocorre de modo que ao acessar uma rota "post", informando os dados do usuário é feito seu cadastro na API, 
+            como informado no arquivo "routes", com isso, a função "create users" é executada, e os dados serão salvos no banco de dados com um id identificador.
+        </p>
+    </div>
+    <div>Consultar usuários
+    <p>A função para consultar é efetuada após a requisição através do método get. Ao chamar esse verbo, através do sequelize é possível fazer a consulta a partir do
+    find ou findAll para a listagem de todos os usuários cadastrados, executada na função "search users".     
+    </p>
+    </div>
+    <div>Alterar usuários
+       <p>A função de alterar usuários, também é feita através de uma requisição, porém, na rota "put" datada no arquivo routes. Deve-se portanto informar o id do usuário 
+        à ser alterado na url da api, após, informa-se os dados alterados que serão atualizados no banco de dados, através da função "updateUser".</p> 
+    </div>
+    <div>Deletar usuários
+   <p>Ao deletar um usuário a requisição é feita pelo "delete", que chama o método destroy da função deleteUser, usando como parâmetro o id do usuário
+    cadastrado.</p> 
+    </div>
 </body>
 
 </html>
