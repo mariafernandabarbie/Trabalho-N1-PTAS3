@@ -57,7 +57,7 @@ const updateUser = async(req, res) =>{
         id:id
     }
     }).then(()=>{
-        res.json("Deu erro!")
+        res.json("Usuário alterado!")
     })
 }
     catch(error){
