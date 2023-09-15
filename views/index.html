@@ -20,6 +20,8 @@
         <li>Nodemon</li>
     </ul></div>
 
+    <h2>Funcionalidades:</h2>
+
     <div>Cadastro de usuários
         <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
             e usado ao longo do desenvolvimento. Isso ocorre de modo que ao acessar uma rota "post", informando os dados do usuário é feito seu cadastro na API, 
@@ -28,7 +30,7 @@
     </div>
     <div>Consultar usuários
     <p>A função para consultar é efetuada após a requisição através do método get. Ao chamar esse verbo, através do sequelize é possível fazer a consulta a partir do
-    find ou findAll para a listagem de todos os usuários cadastrados, executada na função "search users".     
+    ou findAll para a listagem de todos os usuários cadastrados, executada na função "search users".     
     </p>
     </div>
     <div>Alterar usuários
@@ -38,6 +40,10 @@
     <div>Deletar usuários
    <p>Ao deletar um usuário a requisição é feita pelo "delete", que chama o método destroy da função deleteUser, usando como parâmetro o id do usuário
     cadastrado.</p> 
+    </div>
+
+    <div>Autenticar usuários
+    <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilisandi o verbo findOne. </p>
     </div>
 </body>
 
