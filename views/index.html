@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>API- Multiverso do renato</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sparks fly | Gerência de usuários</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 
 <style>
@@ -19,7 +20,7 @@ body {
 }
 
 nav{
-    background-image: url('../../public/imagens/logo.png');
+    background-image: url('https://i.pinimg.com/750x/f2/92/2f/f2922f8bdfacb41a2a6b6234fc32e423.jpg');
     background-repeat: no-repeat;
     background-size: 9%;
     margin-top: 0px;
@@ -47,6 +48,7 @@ nav{
   nav ul li a{
   color: black;
   font-weight: bold;
+  text-decoration: none;
   font-family: Georgia, serif;
   font-size: 18px;
   }
@@ -64,6 +66,41 @@ nav{
   
   color: black;
   }
+
+  .card{
+    margin-top: 50px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    border-radius: 5px;
+    box-shadow: 0 5px 70px -12px rgb(0 0 0 / 0.25);
+}
+
+.card h1{
+    color: #8858C7;
+    padding-top: 30px;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.card h2{
+    margin-bottom: 20px;
+}
+
+.card ul{
+     display: flex;
+     justify-content: center;
+}
+
+.card ul li {
+    padding-left: 0%;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
 </style>
 
 <body>
@@ -78,11 +115,13 @@ nav{
     </ul>
    </nav>
 
-    <div class="verdade">
+    <div class="card">
 
-    <h1>Multiverso do Renato</h1>
+    <div>
 
-    <div><h2>Usamos nessa API as seguintes tecnologias</h2>
+        <h1>Sparks Fly - Gerência de Usuários</h1>
+    
+        <h2>Usamos nessa API as seguintes tecnologias:</h2>
     <ul>
         <li>Sequelize</li>
         <li>Sequelize cli</li>
@@ -92,7 +131,8 @@ nav{
         <li>Nodemon</li>
     </ul></div>
 
-    <h2>Funcionalidades:</h2>
+
+    <h1>Funcionalidades:</h1>
 
     <div id="cadastrar"><h3>Cadastro de usuários</h3> 
         <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
@@ -117,10 +157,10 @@ nav{
     <div id="autenticar"><h3>Autenticar usuários</h3>
     <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilizando o verbo findOne, que verifica
         a partir do parâmetro "user", se o email e password fornecidos pelo formulário batem com os cadastrados no bando de dados, se sim, o usuário
-        ganhará um token . </p>
+        ganhará um token. </p>
     </div>
 
-</div>
+    </div>
 
 </body>
 
