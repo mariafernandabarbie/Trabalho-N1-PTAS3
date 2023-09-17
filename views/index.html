@@ -4,13 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <title>API- Multiverso do renato</title>
 </head>
 
 <body>
+
+   <nav>
+    <ul>
+        <li><a href="#cadastrar">Cadastrar</a></li>
+        <li><a href="#consultar">Consultar</a></li>
+        <li><a href="#alterar">Alterar</a></li>
+        <li><a href="#deletar">Deletar</a></li>
+        <li><a href="#autenticar">Autenticar</a></li>
+    </ul>
+   </nav>
+
+    <div class="verdade">
+
     <h1>Multiverso do Renato</h1>
 
-    <div><h2>Usamos nessa API as seguintes</h2>
+    <div><h2>Usamos nessa API as seguintes tecnologias</h2>
     <ul>
         <li>Sequelize</li>
         <li>Sequelize cli</li>
@@ -22,29 +36,34 @@
 
     <h2>Funcionalidades:</h2>
 
-    <div>Cadastro de usuários
+    <div id="cadastrar"><h3>Cadastro de usuários</h3> 
         <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
             e usado ao longo do desenvolvimento. Isso ocorre de modo que ao acessar uma rota "post", informando os dados do usuário é feito seu cadastro na API, 
             como informado no arquivo "routes", com isso, a função "create users" é executada, e os dados serão salvos no banco de dados com um id identificador.
         </p>
     </div>
-    <div>Consultar usuários
+    <div id="consultar"><h3>Consultar usuários</h3>
     <p>A função para consultar é efetuada após a requisição através do método get. Ao chamar esse verbo, através do sequelize é possível fazer a consulta a partir do
     ou findAll para a listagem de todos os usuários cadastrados, executada na função "search users".     
     </p>
     </div>
-    <div>Alterar usuários
+    <div id="alterar"><h3>Alterar usuários</h3>
        <p>A função de alterar usuários, também é feita através de uma requisição, porém, na rota "put" datada no arquivo routes. Deve-se portanto informar o id do usuário 
         à ser alterado na url da api, após, informa-se os dados alterados que serão atualizados no banco de dados, através da função "updateUser".</p> 
     </div>
-    <div>Deletar usuários
+    <div id="deletar"><h3>Deletar usuários</h3>
    <p>Ao deletar um usuário a requisição é feita pelo "delete", que chama o método destroy da função deleteUser, usando como parâmetro o id do usuário
     cadastrado.</p> 
     </div>
 
-    <div>Autenticar usuários
-    <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilisandi o verbo findOne. </p>
+    <div id="autenticar"><h3>Autenticar usuários</h3>
+    <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilizando o verbo findOne, que verifica
+        a partir do parâmetro "user", se o email e password fornecidos pelo formulário batem com os cadastrados no bando de dados, se sim, o usuário
+        ganhará um token . </p>
     </div>
+
+</div>
+
 </body>
 
 </html>
