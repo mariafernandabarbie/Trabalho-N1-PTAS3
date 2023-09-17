@@ -89,6 +89,14 @@ nav{
     margin-bottom: 20px;
 }
 
+.card h3{
+    color: #9C90DC;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-transform:capitalize;
+}
+
 .card ul{
      display: flex;
      justify-content: center;
@@ -99,6 +107,11 @@ nav{
     text-align: left;
     font-weight: bold;
     margin-left: 20px;
+}
+
+.card img{
+    border-radius: 10px;
+    margin: 50px 0px 0px 0px;
 }
 
 </style>
@@ -131,8 +144,11 @@ nav{
         <li>Nodemon</li>
     </ul></div>
 
+    <img src="https://i.pinimg.com/564x/41/c6/70/41c6703226cbdbcb50a38d96273e690c.jpg"/>
+
 
     <h1>Funcionalidades:</h1>
+    
 
     <div id="cadastrar"><h3>Cadastro de usuários</h3> 
         <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
