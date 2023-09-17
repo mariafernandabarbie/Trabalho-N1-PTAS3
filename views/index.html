@@ -71,6 +71,7 @@ nav{
     margin-top: 50px;
     background-color: white;
     margin-left: auto;
+    padding-bottom: 30px;
     margin-right: auto;
     text-align: center;
     width: 50%;
@@ -116,8 +117,30 @@ nav{
 
 .card p{
     text-align: justify;
+    font-size: 18px;
     margin: 0px 20px 0px 20px;
 }
+
+footer{
+    background-image: url('https://i.pinimg.com/750x/f2/92/2f/f2922f8bdfacb41a2a6b6234fc32e423.jpg');
+    background-repeat: no-repeat;
+    background-size: 9%;
+    margin-top: 50px;
+    background-color: #8858C7;
+    background-position: 3% 35%;
+    height: 200px;
+    position: relative;
+    bottom: 0;
+    padding-left: 250px;
+ }
+
+ footer h3{
+    text-align: right;
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+    color: white;
+ }
 
 </style>
 
@@ -156,32 +179,38 @@ nav{
     
 
     <div id="cadastrar"><h3>Cadastro de usuários</h3> 
-        <p>Nossa API fornece a habilidade de cadastrar novos usuários no banco de dados, através do método create que vem do sequelize que foi instalado
-            e usado ao longo do desenvolvimento. Isso ocorre de modo que ao acessar uma rota "post", informando os dados do usuário é feito seu cadastro na API, 
+        <p>O cadastro de novos usuários no banco de dados através do verbo "create" vindo do sequelize que foi instalado
+            e usado ao longo do desenvolvimento. Isso ocorre de modo que ao acessar uma rota "post", informando os dados do usuário é feito seu cadastro no banco, 
             como informado no arquivo "routes", com isso, a função "create users" é executada, e os dados serão salvos no banco de dados com um id identificador.
         </p>
     </div>
     <div id="consultar"><h3>Consultar usuários</h3>
-    <p>A função para consultar é efetuada após a requisição através do método get. Ao chamar esse verbo, através do sequelize é possível fazer a consulta a partir do
-    ou findAll para a listagem de todos os usuários cadastrados, executada na função "search users".     
+    <p>A consulta dos usuários é efetuada após a requisição através do método get, como escrito no arquivo routes. Ao acessar essa rota, a partir do sequelize é possível fazer a consulta usando
+    o verbo "findAll" para a listagem de todos os usuários cadastrados, executada na função "searchUsers".     
     </p>
     </div>
     <div id="alterar"><h3>Alterar usuários</h3>
-       <p>A função de alterar usuários, também é feita através de uma requisição, porém, na rota "put" datada no arquivo routes. Deve-se portanto informar o id do usuário 
-        à ser alterado na url da api, após, informa-se os dados alterados que serão atualizados no banco de dados, através da função "updateUser".</p> 
+       <p>A função de alterar usuários, também é feita através de uma requisição, porém, na rota "put" datada no arquivo routes, utilizando o verbo "Update" do sequelize.
+         Deve-se portanto informar o id do usuário à ser alterado na url da api, após, informa-se os dados alterados que serão atualizados no banco de dados, através da função "updateUser".</p> 
     </div>
     <div id="deletar"><h3>Deletar usuários</h3>
-   <p>Ao deletar um usuário a requisição é feita pelo "delete", que chama o método destroy da função deleteUser, usando como parâmetro o id do usuário
+   <p>Para deletar um usuário, a requisição é feita pela rota "delete", que é executada no verbo "destroy" do sequelize na função "deleteUser", usando como parâmetro o id do usuário
     cadastrado.</p> 
     </div>
 
     <div id="autenticar"><h3>Autenticar usuários</h3>
-    <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilizando o verbo findOne, que verifica
+    <p>Por fim, estabelecemos também a funcionalidade de autenticação de usuários, que é feita com os dados de email e senha, utilizando o verbo "findOne" do sequelize na função "authenticatedUser", que verifica
         a partir do parâmetro "user", se o email e password fornecidos pelo formulário batem com os cadastrados no bando de dados, se sim, o usuário
-        ganhará um token. </p>
+        ganhará um token e será autenticado. Essa função é executada em uma rota "post". </p>
     </div>
 
     </div>
+
+    <footer>
+        <div>
+            <h3>Flavia Nunes Barboza de Morais & Maria Fernanda de Souza</h3>
+        </div>       
+    </footer>
 
 </body>
 
