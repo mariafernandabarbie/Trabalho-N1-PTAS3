@@ -6,11 +6,11 @@ const jwt = require('jsonwebtoken');
 const createUser = async (req, res) => {
     const { name, email, password } = req.body;
     try {
-        const newpassword = await bcrypt.hash(password, 10); 
+        const newpassword = await bcrypt.hash(password, 10);
 
         await User.create({
             name: name,
-            password: newpassword, 
+            password: newpassword,
             email: email
         }).then(() => {
             res.json('Cadastro de usuário realizado com sucesso!');
@@ -71,7 +71,7 @@ const updateUser = async (req, res) => {
     }
     catch (error) {
         res.status(404).json("Deu erro!")
-    } 
+    }
 }
 
 const authenticatedUser = async (req, res) => {
@@ -79,19 +79,21 @@ const authenticatedUser = async (req, res) => {
     try {
         const isUserAthenticated = await User.findOne({
             where: {
-                email: email,
-                password: newpassword,
-                password: response
+                email: email
+
             }
         })
-        if (!user) {
-            return res.json('Usuário não encontrado');
+
+        if (!isUserAthenticated) {
+            return res.json('Usuário nao encontrado');
+
         }
 
-        const response = await bcrypt.compare(password, user.password);
+        const response = await bcrypt.compare(password, isUserAthenticated.password);
 
         if (!response) {
-            return res.json('Senha incorreta');
+            return res.json('Senha nao corresponde');
+
         }
 
         const token = jwt.sign({ id: email }, secret.secret, {
