@@ -1,23 +1,30 @@
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const secret = require('../config/auth.json');
 const jwt = require('jsonwebtoken');
-const newpassword = await bcrypt.hash(password, 10);
-
 
 const createUser = async (req, res) => {
-    const { name, email } = req.body;
-    await User.create({
-        name: name,
-        password: newpassword,
-        email: email
-    }).then(() => {
-        res.json('Cadastro de usuário realizado com sucesso!');
-        console.log('Cadastro de usuário realizado com sucesso!');
-    }).catch((erro) => {
-        res.json("Deu erro!");
-        console.log(`Ops, deu erro: ${erro}`);
-    })
+    const { name, email, password } = req.body;
+    try {
+        const newpassword = await bcrypt.hash(password, 10); 
+
+        await User.create({
+            name: name,
+            password: newpassword, 
+            email: email
+        }).then(() => {
+            res.json('Cadastro de usuário realizado com sucesso!');
+            console.log('Cadastro de usuário realizado com sucesso!');
+        }).catch((erro) => {
+            res.json("Deu erro!");
+            console.log(`Ops, deu erro: ${erro}`);
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json('Erro interno do servidor');
+    }
 }
+
 
 const searchUsers = async (req, res) => {
     const users = await User.findAll()
@@ -70,7 +77,6 @@ const updateUser = async (req, res) => {
 const authenticatedUser = async (req, res) => {
     const { email, password } = req.body;
     try {
-        const response = await bcrypt.compare(password, passwordCrypto);
         const isUserAthenticated = await User.findOne({
             where: {
                 email: email,
@@ -78,6 +84,16 @@ const authenticatedUser = async (req, res) => {
                 password: response
             }
         })
+        if (!user) {
+            return res.json('Usuário não encontrado');
+        }
+
+        const response = await bcrypt.compare(password, user.password);
+
+        if (!response) {
+            return res.json('Senha incorreta');
+        }
+
         const token = jwt.sign({ id: email }, secret.secret, {
             expiresIn: 86400,
         })
