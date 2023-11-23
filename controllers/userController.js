@@ -56,9 +56,11 @@ const updateUser = async (req, res) => {
     const id = parseInt(req.params.id);
     const { name, password, email } = req.body;
     try {
+        const newpassword = await bcrypt.hash(password, 10);
+
         await User.update({
             name: name,
-            password: password,
+            password: newpassword,
             email: email
         },
             {
@@ -84,9 +86,15 @@ const authenticatedUser = async (req, res) => {
             }
         })
 
-        if (!isUserAthenticated) {
-            return res.json('Usuário nao encontrado');
-
+        if (isUserAthenticated) {
+            const token = jwt.sign({ id: email }, secret.secret, {
+                expiresIn: 86400,
+            })
+            return res.cookie('token', token, { httpOnly: true }).json({
+                name: isUserAthenticated.name,
+                email: isUserAthenticated.email,
+                token: token
+            });
         }
 
         const response = await bcrypt.compare(password, isUserAthenticated.password);
@@ -96,14 +104,8 @@ const authenticatedUser = async (req, res) => {
 
         }
 
-        const token = jwt.sign({ id: email }, secret.secret, {
-            expiresIn: 86400,
-        })
-        return res.json({
-            name: isUserAthenticated.name,
-            email: isUserAthenticated.email,
-            token: token
-        });
+
+
     } catch (error) {
         return res.json('Usuário nao encontrado');
     }

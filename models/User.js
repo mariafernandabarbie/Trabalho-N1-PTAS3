@@ -1,25 +1,25 @@
 const connection = require('../config/connection');
 
-const User = connection.sequelize.define('users',{
-    id: {
-        type: connection.Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    name: {
-        type: connection.Sequelize.STRING,
-        allowNull: false
-    },
-    password:{
-        type: connection.Sequelize.STRING,
-        allowNull:false
+const User = connection.sequelize.define('users', {
+    id: {
+        type: connection.Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
     },
-    email:{
+    name: {
         type: connection.Sequelize.STRING,
-        allowNull:false,
-        unique:true
-    } 
-    })
+        allowNull: true
+    },
+    password: {
+        type: connection.Sequelize.STRING,
+        allowNull: true
+    },
+    email: {
+        type: connection.Sequelize.STRING,
+        allowNull: true,
+        unique: true
+    }
+})
 User.sync();
 module.exports = User;
